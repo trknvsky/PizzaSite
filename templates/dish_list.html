@@ -1,0 +1,8 @@
+{% block content %}
+	<h2>БЛЮДА</h2>
+	<ul>
+		{% for dish in object_list %}
+			<li>{{ dish }}</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

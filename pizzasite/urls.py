@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+from dishes.views import PizzaList, AboutView, BaseView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^pizza/$', PizzaList.as_view()),
+    url(r'^drink/$', AboutView.as_view()),
+    url(r'^home/$', BaseView.as_view())
 ]
