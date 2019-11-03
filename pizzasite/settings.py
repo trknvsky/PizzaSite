@@ -56,7 +56,7 @@ ROOT_URLCONF = 'pizzasite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/dLnnnnnn/Desktop/PYTHON_HW/pizzasite/templates'],
+        'DIRS': ['C:/Users/dLnnnnnn/pizzasite/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
