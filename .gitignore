@@ -1,0 +1,8 @@
+.idea/
+venv/
+dishes/__pycache__/
+order/__pycache__/
+pizzasite/__pycache__/
+dishes/migrations/__pycache__/
+order/migrations/__pycache__/
+

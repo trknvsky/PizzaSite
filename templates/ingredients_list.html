@@ -1,0 +1,7 @@
+<h2>ИНГРИДИЕНТЫ</h2>
+	<ul>
+		{% for ingredient in object_list %}
+			<li>{{ingredient.id}}.  {{ ingredient.name }}  {{ ingredient.price }} - <a href="/ingredientsedit/{{ ingredient.id }}/">edit</a> </li>
+		{% endfor %}
+	</ul>
+<a href="/addingredient">Add new</a>
