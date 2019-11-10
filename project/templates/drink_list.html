@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h2>НАПИТКИ</h2>
+
+	<ul>
+		{% for drink in drink_list|dictsort:"price" %}
+			<li>{{ drink.name|capfirst }}  {{ drink.price }} - <a href="/drinkedit/{{ drink.id }}/">изменить</a></li>
+		{% endfor %}
+	</ul>
+
+	<ul>
+	{% if drink_list %}
+		Количество напитков: {{ drink_list|length }}
+	{% else %}
+		Нет напитков.
+	{% endif %}
+	</ul>
+	
+	<ul>
+	{% include "drink_add.html" %}
+	</ul>
+
+{% endblock %}

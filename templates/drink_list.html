@@ -1,7 +1,0 @@
-<h2>НАПИТКИ</h2>
-	<ul>
-		{% for drink in object_list %}
-			<li>{{drink.id}}.  {{ drink.name }}  {{ drink.price }} - <a href="/drinkedit/{{ drink.id }}/">edit</a> </li>
-		{% endfor %}
-	</ul>
-<a href="/drinkadd">Add new</a>

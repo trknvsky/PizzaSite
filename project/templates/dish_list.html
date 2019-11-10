@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h2>БЛЮДА</h2>
+
+	<ul>
+		{% for dish in dish_list|dictsort:"price" %}
+			<li>{{ dish.name|capfirst }} {{ dish.price }} - <a href="/dishedit/{{ dish.id }}/">изменить</a> </li>
+		{% endfor %}
+	</ul>
+
+	<ul>
+		{% if dish_list %}
+			Количество блюд: {{ dish_list|length }}
+		{% else %}
+			Нет блюд.
+		{% endif %}
+	</ul>
+
+	<ul>
+	{% include "dish_add.html" %}
+
+{% endblock %}
