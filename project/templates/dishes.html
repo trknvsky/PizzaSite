@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block main %}
+<h2>Количество блюд: {{ dish_count }}</h2>
+
+	<ul>{% for dish in dish_list %}
+			<li>{{ dish }}</li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}

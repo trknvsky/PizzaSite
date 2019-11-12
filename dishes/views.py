@@ -51,6 +51,22 @@ class DishList(ListView):
     template_name = 'dish_list.html'
 
 
+class DishView(ListView):
+    model = Dish
+    # queryset = Dish.objects.filter(price__lt=30)
+    template_name = 'dishes.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['dish_count'] = Dish.objects.count()
+        return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = Dish.objects.values_list('name', flat=True).order_by('price')
+        return queryset
+
+
 class AddNewDish(FormView):
     form_class = DishForm
     template_name = 'send.html'

@@ -24,6 +24,7 @@ urlpatterns = [
     path('drinkedit/<int:pk>/', DrinkUpdate.as_view()),
     path('drinkadd/', AddNewDrink.as_view()),
     path('drinks/', DrinkList.as_view()),
+    path('dish/', DishView.as_view()),
 ]
 
 if settings.DEBUG:
