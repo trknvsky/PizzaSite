@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django import forms
 from django.views.generic.edit import UpdateView, FormView
 from dishes.models import Ingredient
-from dishes.forms import IngredientForm, DishForm, DrinkForm
+from dishes.forms import *
 
 
 class AboutView(TemplateView):
@@ -53,7 +53,6 @@ class DishList(ListView):
 
 class DishView(ListView):
     model = Dish
-    # queryset = Dish.objects.filter(price__lt=30)
     template_name = 'dishes.html'
 
     def get_context_data(self, **kwargs):

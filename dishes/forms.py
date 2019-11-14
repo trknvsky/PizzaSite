@@ -19,4 +19,3 @@ class DrinkForm(ModelForm):
     class Meta:
         model = Drink
         fields = ['name', 'price']
-
