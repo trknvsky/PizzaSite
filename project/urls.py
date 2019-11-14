@@ -25,6 +25,7 @@ urlpatterns = [
     path('drinkadd/', AddNewDrink.as_view()),
     path('drinks/', DrinkList.as_view()),
     path('dish/', DishView.as_view()),
+    path('changepricedish/', ChangePriceDish.as_view()),
 ]
 
 if settings.DEBUG:

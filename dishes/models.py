@@ -31,6 +31,14 @@ class Dish(BaseItem):
     def __str__(self):
         return self.name
 
+    @staticmethod
+    def change_price(price):
+        prices = Dish.objects.all()
+        # prices = [25, 35, 45]
+        for price in prices:
+            prices['price'] = prices['price'] + price
+            #  [25, 35, 45] =  [25, 35, 45] 
+
 
 class Drink(BaseItem):
 
