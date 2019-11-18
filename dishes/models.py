@@ -32,12 +32,11 @@ class Dish(BaseItem):
         return self.name
 
     @staticmethod
-    def change_price(pr):
+    def change_price(price):
         dishes = Dish.objects.all()
         for dish in dishes:
-            dish.price += pr
+            dish.price += price
             dish.save()
-        print(dishes)
     
 
 class Drink(BaseItem):
@@ -49,4 +48,13 @@ class Drink(BaseItem):
     def __str__(self):
         return self.name
 
+
+class InstanceDish(BaseItem):
+
+    class Meta:
+        verbose_name = 'Блюдо'
+        verbose_name_plural = 'Блюда'
+
+    def __str__(self):
+        return self.name
 

@@ -118,10 +118,9 @@ class ChangePriceDish(FormView):
     template_name = 'send.html'
     success_url = '/dishes'
 
-    def form_valid(self, form, **kwargs):
+    def form_valid(self, form):
         price = form.cleaned_data.get('price')
         Dish.change_price(price)
-        print('price', price)
         return super().form_valid(form)
 
 

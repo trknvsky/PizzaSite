@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.views.generic import TemplateView
 from dishes.views import *
+from order.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,7 @@ urlpatterns = [
     path('drinks/', DrinkList.as_view()),
     path('dish/', DishView.as_view()),
     path('changepricedish/', ChangePriceDish.as_view()),
+    path('order_add/', OrderFormView.as_view),
 ]
 
 if settings.DEBUG:
