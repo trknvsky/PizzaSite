@@ -10,7 +10,7 @@ class Order(models.Model):
     place_delivery = models.CharField(max_length=512)
     user_profile = models.CharField(max_length=512)
 
-    def update(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
         price_dishes = sum([dish.price for dish in self.dishes.all()])
         price_drinks = sum([drink.price for drink in self.drinks.all()])
         print('price_dishes', price_dishes)
