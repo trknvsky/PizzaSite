@@ -19,8 +19,3 @@ class DrinkForm(ModelForm):
     class Meta:
         model = Drink
         fields = ['name', 'price']
-
-
-class ChangePriceForm(forms.Form):
-	price = forms.DecimalField(max_digits=9, decimal_places=2)
-

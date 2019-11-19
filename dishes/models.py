@@ -30,13 +30,6 @@ class Dish(BaseItem):
 
     def __str__(self):
         return self.name
-
-    @staticmethod
-    def change_price(price):
-        dishes = Dish.objects.all()
-        for dish in dishes:
-            dish.price += price
-            dish.save()
     
 
 class Drink(BaseItem):

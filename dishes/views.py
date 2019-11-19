@@ -111,16 +111,3 @@ class IngredientUpdate(UpdateView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
-
-
-class ChangePriceDish(FormView):
-    form_class = ChangePriceForm
-    template_name = 'send.html'
-    success_url = '/dishes'
-
-    def form_valid(self, form):
-        price = form.cleaned_data.get('price')
-        Dish.change_price(price)
-        return super().form_valid(form)
-
-

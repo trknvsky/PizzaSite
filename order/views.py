@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from orders.models import *
+from order.models import *
 from django.views.generic import FormView
 from django.views.generic.edit import UpdateView, FormView
 from order.forms import *
