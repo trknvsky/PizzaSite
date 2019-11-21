@@ -5,7 +5,7 @@
 <h2>БЛЮДА</h2>
 
 	<ul>
-		{% for dish in dish_list|dictsort:"price" %}
+		{% for dish in dish_list %}
 			<li>{{ dish.name|capfirst }} {{ dish.price }} - <a href="/dishedit/{{ dish.id }}/">изменить</a> </li>
 		{% endfor %}
 	</ul>
@@ -17,9 +17,14 @@
 			Нет блюд.
 		{% endif %}
 	</ul>
-
+	<ul>
+		<option><a href="/dishes/?ordering=name">сортировать по имени</a><br></option>
+		<option><a href="/dishes/?ordering=price">сортировать от дешевых к дорогим</a><br></option>
+		<option><a href="/dishes/?ordering=-price">сортировать от дорогих к дешевым</a><br></option>
+	</ul>
 	<ul>
 	{% include "dish_add.html" %}
-
+	{% include "change_price.html" %}
+	</ul>
 
 {% endblock %}

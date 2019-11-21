@@ -24,13 +24,21 @@ class Ingredient(BaseItem):
 class Dish(BaseItem):
     ingredients = models.ManyToManyField(Ingredient, blank=True, null=True)
 
+
     class Meta:
         verbose_name = 'Блюдо'
         verbose_name_plural = 'Блюда'
 
     def __str__(self):
         return self.name
-    
+
+    @staticmethod
+    def change_price(price):
+        dishes = Dish.objects.all()
+        for dish in dishes:
+            dish.price += price
+            dish.save()
+
 
 class Drink(BaseItem):
 

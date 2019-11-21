@@ -49,6 +49,15 @@ class DrinkUpdate(UpdateView):
 class DishList(ListView):
     model = Dish
     template_name = 'dish_list.html'
+    sorting_fields = ['name', 'price', '-price']
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        ordering = self.request.GET.get('ordering', 'name')
+        if ordering not in self.sorting_fields:
+            ordering = 'name'
+        queryset = Dish.objects.all().order_by(ordering)
+        return queryset
 
 
 class DishView(ListView):
@@ -84,6 +93,18 @@ class DishUpdate(UpdateView):
 
     def form_valid(self, form):
         form.save()
+        return super().form_valid(form)
+
+
+class ChangePriceDish(FormView):
+    form_class = ChangePriceForm
+    template_name = 'change_price_form.html'
+    success_url = '/dishes'
+
+
+    def form_valid(self, form):
+        price = form.cleaned_data.get('price')
+        Dish.change_price(price)
         return super().form_valid(form)
 
 
