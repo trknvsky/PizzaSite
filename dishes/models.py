@@ -24,7 +24,6 @@ class Ingredient(BaseItem):
 class Dish(BaseItem):
     ingredients = models.ManyToManyField(Ingredient, blank=True, null=True)
 
-
     class Meta:
         verbose_name = 'Блюдо'
         verbose_name_plural = 'Блюда'
@@ -48,14 +47,3 @@ class Drink(BaseItem):
 
     def __str__(self):
         return self.name
-
-
-class InstanceDish(BaseItem):
-
-    class Meta:
-        verbose_name = 'Блюдо'
-        verbose_name_plural = 'Блюда'
-
-    def __str__(self):
-        return self.name
-
