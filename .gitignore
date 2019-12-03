@@ -89,7 +89,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -103,6 +102,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 local_settings.py
+.gitignore
 
 *.pyc
 .idea/
@@ -112,3 +112,10 @@ order/__pycache__/
 project/__pycache__/
 dishes/migrations/__pycache__/
 order/migrations/__pycache__/
+accounts/migrations/0018_auto_20191123_1457.py
+accounts/migrations/0019_auto_20191203_1550.py
+dishes/migrations/0008_instancedish.py
+dishes/migrations/0009_auto_20191203_1550.py
+order/migrations/0007_auto_20191123_1457.py
+order/migrations/0008_auto_20191203_1550.py
+
