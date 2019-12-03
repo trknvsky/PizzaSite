@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block main %}
+	<ul>
+		{% for order in order_list %}
+				<li> Заказ № {{ order.id }}<br>
+					<br>
+				{% for dish in order.dishes.all %}
+					{{ dish.name }} {{ dish.count }} {% widthratio dish.price 1 dish.count %} - <a href="/changeinstance/{{ dish.id }}/">редактировать</a><br>
+				{% endfor %}
+					<br>
+				сумма заказа: {{ order.full_price }}<br>
+				дата заказа: {{ order.date_create }}<br> 
+		{% endfor %}
+	</ul>
+{%endblock%}

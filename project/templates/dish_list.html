@@ -6,7 +6,13 @@
 
 	<ul>
 		{% for dish in dish_list %}
-			<li>{{ dish.name|capfirst }} {{ dish.price }} - <a href="/dishedit/{{ dish.id }}/">изменить</a> </li>
+			<li>{{ dish.name|capfirst }} цена: {{ dish.price }} - <a href="/dishedit/{{ dish.id }}/">изменить</a> </li>
+			<form method="post" action="addpizza/">{% csrf_token %}
+				<input type="number" name="dish_id "value="{{ dish.id }}" hidden="dish.id">
+				<input type ="number" name="count" value="{{ dish.count }}" placeholder="Количество">
+    			<button type="submit" value="Добавить в корзину">Добавить в корзину</button>
+			</form>
+
 		{% endfor %}
 	</ul>
 
