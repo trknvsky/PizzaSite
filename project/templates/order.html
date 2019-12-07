@@ -2,7 +2,7 @@
 
 {% block main %}
 	<ul>
-		{% for order in  %}
+		{% for order in order_list %}
 				<li> Заказ № {{ order.id }}<br>
 					<br>
 				{% for dish in order.dishes.all %}
