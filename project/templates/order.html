@@ -10,7 +10,9 @@
 				{% endfor %}
 					<br>
 				сумма заказа: {{ order.full_price }}<br>
-				дата заказа: {{ order.date_create }}<br> 
+				дата заказа: {{ order.date_create }}<br></li>
+				<br>
+				<p><a href="/makeorder/{{ order.id }}/"><button>оформить заказ</button></a></p>
 		{% endfor %}
 	</ul>
 {%endblock%}

@@ -13,3 +13,9 @@ class ChangeInstance(ModelForm):
 	class Meta:
 		model = InstanceDish
 		fields = ['count']
+
+
+class OrderForm(ModelForm):
+	class Meta:
+		model = Order
+		fields = ['phone_number', 'first_name', 'adress']

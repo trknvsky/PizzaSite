@@ -36,3 +36,18 @@ class InstanceUpdate(UpdateView):
 		order = Order.objects.get(user_profile=self.request.user)
 		order.calculate_price()
 		return instance
+
+
+class MakeOrderView(UpdateView):
+    template_name = "make_order.html"
+	model = Order
+	form_class = OrderForm
+	success_url = '/order_sucess/'
+
+	def form_valid(self, form):
+		form.save()
+		return super().form_valid(form)
+
+
+class AboutView(TemplateView):
+    template_name = 'order_sucess.html'

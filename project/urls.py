@@ -30,6 +30,7 @@ urlpatterns = [
     path('dishes/addpizza/', AddDishView.as_view()),
     path('order', OrderView.as_view()),
     path('changeinstance/<int:pk>/', InstanceUpdate.as_view()),
+    path('makeorder/<int:pk>/', MakeOrderView.as_view()),
 ]
 
 if settings.DEBUG:
