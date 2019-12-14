@@ -102,7 +102,7 @@ venv.bak/
 # mypy
 .mypy_cache/
 local_settings.py
-.gitignore
+
 
 *.pyc
 .idea/
@@ -118,4 +118,7 @@ dishes/migrations/0008_instancedish.py
 dishes/migrations/0009_auto_20191203_1550.py
 order/migrations/0007_auto_20191123_1457.py
 order/migrations/0008_auto_20191203_1550.py
+.vscode/
+.gitignore/
+
 
