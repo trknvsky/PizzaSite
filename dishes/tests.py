@@ -31,12 +31,12 @@ class DishListViewTest(TestCase):
         response = self.client.get('/dishes/')
         self.assertEqual(response.status_code, 200)
         self.assertTrue('is_paginated' in response.context)
-        self.assertTrue(response.context['is_paginated'] == True)
+        self.assertTrue(response.context['is_paginated'] is True)
         self.assertTrue(len(response.context['dish_list']) == 12)
 
     def test_lists_all_dishes(self):
         response = self.client.get('/dishes/?page=2')
         self.assertEqual(response.status_code, 200)
         self.assertTrue('is_paginated' in response.context)
-        self.assertTrue(response.context['is_paginated'] == True)
+        self.assertTrue(response.context['is_paginated'] is True)
         self.assertTrue(len(response.context['dish_list']) == 3)

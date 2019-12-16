@@ -11,6 +11,3 @@ admin.site.register(Dish, DishAdmin)
 admin.site.register(Drink)
 admin.site.register(Ingredient)
 admin.site.register(InstanceDish)
-
-
-

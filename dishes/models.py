@@ -56,20 +56,24 @@ class Drink(BaseItem):
     def __str__(self):
         return self.name
 
+
 class InstanceDish(models.Model):
     name = models.CharField(max_length=255)
-    price = models.DecimalField(max_digits=9, decimal_places=2, default=0)    
+    price = models.DecimalField(max_digits=9, decimal_places=2, default=0)
     count = models.PositiveIntegerField(default=1)
-    dish = models.ForeignKey(Dish, related_name='dishes', null=True, blank=True, on_delete=models.SET_NULL)
+    dish = models.ForeignKey(
+        Dish, related_name='dishes',
+        null=True, blank=True, on_delete=models.SET_NULL
+        )
 
     class Meta:
-        verbose_name='Корзина'
-        verbose_name_plural='Корзина'
+        verbose_name = 'Корзина'
+        verbose_name_plural = 'Корзина'
 
     def __str__(self):
         return 'Блюдо: {}, цена: {}, количество: {}, сумма: {}'.format(
-            self.name, 
+            self.name,
             str(self.price),
-            str(self.count), 
+            str(self.count),
             str(self.price * self.count)
             )

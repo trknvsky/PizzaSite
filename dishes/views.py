@@ -20,7 +20,7 @@ class BaseView(View):
         return HttpResponse(self.greeting)
 
 
-class DrinkList(ListView):
+class DrinkListView(ListView):
     model = Drink
     template_name = 'drink_list.html'
 
@@ -35,7 +35,7 @@ class AddNewDrink(FormView):
         return super().form_valid(form)
 
 
-class DrinkUpdate(UpdateView):
+class DrinkUpdateView(UpdateView):
     form_class = DrinkForm
     model = Drink
     template_name = 'send.html'
@@ -46,7 +46,7 @@ class DrinkUpdate(UpdateView):
         return super().form_valid(form)
 
 
-class DishList(ListView):
+class DishListView(ListView):
     model = Dish
     template_name = 'dish_list.html'
     sorting_fields = ['name', 'price', '-price']
@@ -75,7 +75,7 @@ class DishView(ListView):
         return queryset
 
 
-class AddNewDish(FormView):
+class AddNewDishView(FormView):
     form_class = DishForm
     template_name = 'send.html'
     success_url = '/dishes'
@@ -85,7 +85,7 @@ class AddNewDish(FormView):
         return super().form_valid(form)
 
 
-class DishUpdate(UpdateView):
+class DishUpdateView(UpdateView):
     form_class = DishForm
     model = Dish
     template_name = 'send.html'
@@ -96,11 +96,10 @@ class DishUpdate(UpdateView):
         return super().form_valid(form)
 
 
-class ChangePriceDish(FormView):
+class ChangePriceDishView(FormView):
     form_class = ChangePriceForm
     template_name = 'change_price_form.html'
     success_url = '/dishes'
-
 
     def form_valid(self, form):
         price = form.cleaned_data.get('price')
@@ -108,12 +107,12 @@ class ChangePriceDish(FormView):
         return super().form_valid(form)
 
 
-class IngredientList(ListView):
+class IngredientListView(ListView):
     model = Ingredient
     template_name = 'ingredients_list.html'
 
 
-class AddNewIngredient(FormView):
+class AddNewIngredientView(FormView):
     form_class = IngredientForm
     template_name = 'send.html'
     success_url = '/ingredients'
@@ -123,7 +122,7 @@ class AddNewIngredient(FormView):
         return super().form_valid(form)
 
 
-class IngredientUpdate(UpdateView):
+class IngredientUpdateView(UpdateView):
     form_class = IngredientForm
     model = Ingredient
     template_name = 'send.html'
