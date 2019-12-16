@@ -16,6 +16,12 @@ class UrlsTest(TestCase):
 
 class OrderFormTest(TestCase):
 
+    def setUp(self):
+        Order.objects.create(
+            full_price="500",
+            date_create="15.12.2019",
+        )
+
     def test_order_form_true(self):
         form_data = {'phone_number': '+380931444144',
         'first_name': 'Cat',
@@ -23,6 +29,8 @@ class OrderFormTest(TestCase):
         }
         form = OrderForm(data=form_data)
         self.assertTrue(form.is_valid())
+        response = self.client.post("/makeorder/1/", form_data)
+        self.assertEqual(response.status_code, 302)
 
     def test_order_form_false(self):
         form_data = {'phone_number': '000000000000',
