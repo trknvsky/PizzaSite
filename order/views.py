@@ -39,7 +39,7 @@ class InstanceUpdate(UpdateView):
 
 
 class MakeOrderView(UpdateView):
-    template_name = "make_order.html"
+	template_name = "make_order.html"
 	model = Order
 	form_class = OrderForm
 	success_url = '/order_sucess/'
