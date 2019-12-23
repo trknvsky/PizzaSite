@@ -33,7 +33,7 @@ class InstanceUpdate(UpdateView):
 
 	def form_valid(self, form):
 		instance = super().form_valid(form)
-		order = Order.objects.get(user_profile=self.request.user)
+		order = Order.objects.get()
 		order.calculate_price()
 		return instance
 
