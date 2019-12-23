@@ -14,7 +14,7 @@ class AddDishView(FormView):
 		dish = Dish.objects.get(id=form.cleaned_data.get('dish_id'))
 		count = form.cleaned_data.get("count")
 		instance = Dish.create_order(dish, count)
-		order, created = Order.objects.get_or_create(user_profile=self.request.user)
+		order, created = Order.objects.get_or_create()
 		order.dishes.add(instance)
 		order.calculate_price()
 		return super().form_valid(form)
