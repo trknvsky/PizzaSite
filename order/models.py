@@ -28,3 +28,14 @@ class Order(models.Model):
         for dish in self.dishes.all():
             self.full_price += dish.price * dish.count
         self.save()
+
+    def get_serialize_data(self):
+        print(self.user_profile.id)
+        return{
+            'dishes': list(self.dishes.all().values_list('name', 'count', 'price')),
+            'date': self.date_create,
+            'full_price': self.full_price,
+            'phone': str(self.phone_number),
+            'first_name': self.first_name,
+            'adress': self.adress
+        }

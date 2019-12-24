@@ -46,6 +46,14 @@ class Dish(BaseItem):
                 count=count
             )
 
+    def get_serialize_data(self):
+        return{
+            'name': self.name,
+            'price': self.price,
+            'image': self.dish_img.url,
+            'ingedients': list(self.ingredients.all().values_list('name', flat=True))
+        }
+
 
 class Drink(BaseItem):
 

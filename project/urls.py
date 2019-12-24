@@ -7,6 +7,8 @@ from django.conf import settings
 from django.views.generic import TemplateView
 from dishes.views import *
 from order.views import *
+from dishes.views_api import *
+from order.views_api import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +33,10 @@ urlpatterns = [
     path('order', OrderView.as_view()),
     path('changeinstance/<int:pk>/', InstanceUpdate.as_view()),
     path('makeorder/<int:pk>/', MakeOrderView.as_view()),
+    # API URLS
+    path('pizzas/', DishApiView.as_view()),
+    path('orders/', OrderApiView.as_view()),
+    path('add_pizza_to_order/', PizzaToOrderApiView.as_view()),
 ]
 
 if settings.DEBUG:
