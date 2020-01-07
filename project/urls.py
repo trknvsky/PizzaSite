@@ -9,6 +9,7 @@ from dishes.views import *
 from order.views import *
 from dishes.views_api import *
 from order.views_api import *
+from rest_framework import routers, serializers, viewsets
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,6 +38,8 @@ urlpatterns = [
     path('pizzas/', DishApiView.as_view()),
     path('orders/', OrderApiView.as_view()),
     path('add_pizza_to_order/', PizzaToOrderApiView.as_view()),
+    path('dish_api/', include('dishes.urls')),
+    path('order_api/', include('order.urls')),
 ]
 
 if settings.DEBUG:

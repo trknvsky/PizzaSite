@@ -4,6 +4,9 @@ from django.views.generic.edit import UpdateView, FormView
 from django.views.generic import TemplateView, ListView, View, FormView
 from order.forms import *
 from dishes.models import *
+from rest_framework import routers, serializers, viewsets
+from order.serializers import OrderSerializer
+
 
 class AddDishView(FormView):
 	template_name = "dish_list.html"
@@ -51,3 +54,8 @@ class MakeOrderView(UpdateView):
 
 class AboutView(TemplateView):
     template_name = 'order_sucess.html'
+
+
+class OrderViewSet(viewsets.ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer

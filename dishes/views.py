@@ -6,6 +6,8 @@ from django import forms
 from django.views.generic.edit import UpdateView, FormView
 from dishes.models import Ingredient
 from dishes.forms import *
+from rest_framework import routers, serializers, viewsets
+from dishes.serializers import DishSerializer, IngregientSerializer, InstanceDishSerializer
 
 
 class AboutView(TemplateView):
@@ -132,3 +134,18 @@ class IngredientUpdate(UpdateView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+
+class IngredientViewSet(viewsets.ModelViewSet):
+    queryset = Ingredient.objects.all()
+    serializer_class = IngregientSerializer
+
+
+class DishViewSet(viewsets.ModelViewSet):
+    queryset = Dish.objects.all().order_by('name')
+    serializer_class = DishSerializer
+
+
+class InstanceDishViewSet(viewsets.ModelViewSet):
+    queryset = InstanceDish.objects.all()
+    serializer_class = InstanceDishSerializer
