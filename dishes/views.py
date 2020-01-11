@@ -8,6 +8,8 @@ from dishes.models import Ingredient
 from dishes.forms import *
 from rest_framework import routers, serializers, viewsets
 from dishes.serializers import DishSerializer, IngregientSerializer, InstanceDishSerializer
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 
 
 class AboutView(TemplateView):
@@ -60,6 +62,10 @@ class DishList(ListView):
             ordering = 'name'
         queryset = Dish.objects.all().order_by(ordering)
         return queryset
+
+    @method_decorator(cache_page(60))
+    def dispatch(self, request, *args, **kwargs):
+        return super(DishListView, self).dispatch(request, *args, **kwargs)
 
 
 class DishView(ListView):

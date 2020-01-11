@@ -44,6 +44,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'core.middleware.LogOutMiddleware',
+    'accounts.middleware.VisitorIpMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
