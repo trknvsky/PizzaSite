@@ -6,6 +6,8 @@ from order.forms import *
 from dishes.models import *
 from rest_framework import routers, serializers, viewsets
 from order.serializers import OrderSerializer
+from .tasks import *
+from dishes.tasks import *
 
 
 class AddDishView(FormView):
@@ -14,12 +16,10 @@ class AddDishView(FormView):
 	success_url = '/dishes'
 
 	def form_valid(self, form):
-		dish = Dish.objects.get(id=form.cleaned_data.get('dish_id'))
+		dish_id = form.cleaned_data.get('dish_id')
 		count = form.cleaned_data.get("count")
-		instance = Dish.create_order(dish, count)
-		order, created = Order.objects.get_or_create()
-		order.dishes.add(instance)
-		order.calculate_price()
+		order_add.delay(dish_id, count)
+		parsing_pizzas.delay()
 		return super().form_valid(form)
 
 
